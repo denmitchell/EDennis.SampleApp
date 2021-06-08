@@ -1,0 +1,14 @@
+﻿1. EXECUTE COMMANDS IN PACKAGE MANAGER
+Add-Migration Initial -Project EDennis.SampleApp -StartupProject EDennis.SampleApp -Context ColorContext -Output Migrations\Generated
+Add-Migration TestData -Project EDennis.SampleApp -StartupProject EDennis.SampleApp -Context ColorContext -Output Migrations\Generated
+
+2. IN TEST CLASS...
+	a. Remove implementation of Up and Down methods
+	b. Have class inherit from TestDataMigration
+
+3. EXECUTE COMMANDS IN PACKAGE MANAGER
+Drop-Database -Project EDennis.SampleApp -StartupProject EDennis.SampleApp -Context ColorContext
+Update-Database -Project EDennis.SampleApp -StartupProject EDennis.SampleApp -Context ColorContext
+
+
+Remove-Migration -Project EDennis.SampleApp -StartupProject EDennis.SampleApp -Context ColorContext -Output Migrations\Generated
